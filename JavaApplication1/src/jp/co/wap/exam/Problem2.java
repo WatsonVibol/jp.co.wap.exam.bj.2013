@@ -8,22 +8,15 @@ public class Problem2 {
 		final int MINUTE_UNIT_NUM = 24 * 60 + 1;
 		final int MAX_INTERVAL_SIZE = 10000 + 1;
 
-		public long time_0, time_1, time_2, time;
-
 		public int getMaxWorkingTime(List<Interval> intervals) {
 
-				time = System.nanoTime();
-				
 				int[] task_next = new int[MAX_INTERVAL_SIZE];
 				int[] task_end = new int[MAX_INTERVAL_SIZE];
 
 				int[] task_stack = new int[MINUTE_UNIT_NUM];
 				int[] maxWorkingTime = new int[MINUTE_UNIT_NUM];
 				
-				time_0 += System.nanoTime() - time;
-				time = System.nanoTime();
-				
-				
+					
 				int tasks_num = 1;
 				for (Interval element : intervals) {
 						int task_id = tasks_num;
@@ -34,9 +27,6 @@ public class Problem2 {
 						tasks_num++;
 				}
 				
-				time_1 += System.nanoTime()  - time;
-				time = System.nanoTime();
-
 				int currentMaxWorkingTime = 0;
 				for (int i = 0; i < MINUTE_UNIT_NUM; i++) {
 						int task_id = task_stack[i];
@@ -52,8 +42,6 @@ public class Problem2 {
 								currentMaxWorkingTime = maxWorkingTime[i];
 						}
 				}
-
-				time_2 += System.nanoTime()  - time;
 
 
 				return currentMaxWorkingTime;
